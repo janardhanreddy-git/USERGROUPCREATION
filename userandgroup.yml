@@ -13,7 +13,7 @@
   - name: create user
     user: 
       name: "{{ item }}"
-      group: admin
+      groups: admin
       password: 1234
       shell: /bin/bash
       state: present
@@ -25,7 +25,7 @@
   - name: create user
     user:
       name: "{{ item }}"
-      group: infra
+      groups: infra
       password: 1234
       shell: /bin/bash
       state: present
