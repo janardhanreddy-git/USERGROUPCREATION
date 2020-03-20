@@ -1,0 +1,36 @@
+--- 
+- hosts: all
+  become: yes
+  tasks:
+  - name: create group 
+    group:
+      name: "{{ item }}"
+      state: present
+    loop:
+       - admin
+       - infra
+
+  - name: create user
+    user: 
+      name: "{{ item }}"
+      group: admin
+      password: 1234
+      shell: /bin/bash
+      state: present
+    loop:
+       - user1
+       - user2  
+       - user3
+
+  - name: create user
+    user:
+      name: "{{ item }}"
+      group: infra
+      password: 1234
+      shell: /bin/bash
+      state: present
+    loop:
+       - user4
+       - user5
+       - user6  
+  
